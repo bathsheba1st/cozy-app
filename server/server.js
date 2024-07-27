@@ -2,15 +2,10 @@ const express = require('express');
 require('dotenv').config();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const cors = require('cors');
-
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-
-// app.get('/stripe-public-key', (req, res) => {
-//     res.send({ publicKey: process.env.STRIPE_PUBLIC_KEY });
-// });
 
 app.post('/create-payment-intent',
     async (req, res) => {
